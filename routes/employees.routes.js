@@ -25,6 +25,7 @@ router.get('/employees/:id', (req, res) => {
 });
 
 router.post('/employees', (req, res) => {
+  const { firstName, lastName } = req.body;
   req.db.collection('employees').insertOne({ firstName: firstName, lastName: lastName }, err => {
     if (err) res.status(500).json({ message: err });
     else res.json({ message: 'ok' });
@@ -32,6 +33,7 @@ router.post('/employees', (req, res) => {
 });
 
 router.put('/employees/:id', (req, res) => {
+  const { firstName, lastName } = req.body;
   req.db.collection('employees').updateOne({ _id: ObjectId(req.params.id) }, { $set: { firstName: firstName, lastName: lastName }}, err => {
     if (err) res.status(500).json({ message: err });
     else res.json({ message: 'ok' });
