@@ -10,3 +10,5 @@ router.get('/departments/:id', DepartmentController.getOne);
 router.post('/departments', DepartmentController.post);
 router.put('/departments/:id', DepartmentController.put);
 router.delete('/departments/:id', DepartmentController.delete);
+
+module.exports = router;
